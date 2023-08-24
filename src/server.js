@@ -2,7 +2,6 @@ import express from 'express'
 import nodemailer from 'nodemailer'
 import path from 'node:path'
 import hbs from 'nodemailer-express-handlebars'
-import morgan from 'morgan'
 import { fileURLToPath } from 'url'
 import dotenv from 'dotenv'
 
@@ -16,7 +15,6 @@ const app = express()
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
-app.use(morgan('dev'))
 
 app.post('/email', async (req, res) => {
     const { name, email, message } = req.body
